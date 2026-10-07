@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/models/user_role.dart';
 import '../../core/theme/app_colors.dart';
+import '../auth/login_screen.dart';
 
 class RoleSelectionScreen extends StatelessWidget {
   const RoleSelectionScreen({super.key});
@@ -64,12 +65,9 @@ class _RoleCard extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(16),
           onTap: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                  'تم اختيار: ${role.arabicName} (الشاشة التالية في المرحلة القادمة)',
-                ),
-                backgroundColor: role.color,
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => LoginScreen(role: role),
               ),
             );
           },
