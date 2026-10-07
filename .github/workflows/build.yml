@@ -24,6 +24,13 @@ jobs:
           flutter-version: '3.22.0'
           channel: 'stable'
 
+      - name: Create Flutter project structure
+        run: |
+          cd ..
+          flutter create --platforms=android --org com.smartschool --project-name smart_school_attendance Smart-School-Attendance-Temp
+          cp -r Smart-School-Attendance-Temp/android ./Smart-School-Attendance/
+          cp Smart-School-Attendance-Temp/.gitignore ./Smart-School-Attendance/.gitignore || true
+
       - name: Get dependencies
         run: flutter pub get
 
