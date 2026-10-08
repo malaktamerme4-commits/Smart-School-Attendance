@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'core/theme/app_theme.dart';
+import 'features/splash/splash_screen.dart';
 
 void main() {
   runApp(const SmartSchoolApp());
@@ -12,32 +14,9 @@ class SmartSchoolApp extends StatelessWidget {
     return MaterialApp(
       title: 'Smart School Attendance',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('تطبيق حضور الطلاب'),
-        backgroundColor: Colors.blue,
-      ),
-      body: const Center(
-        child: Text(
-          'مرحبًا 👋\nالبنية الأساسية تعمل بنجاح',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      theme: AppTheme.lightTheme,
+      locale: const Locale('ar'),
+      home: const SplashScreen(),
     );
   }
 }
